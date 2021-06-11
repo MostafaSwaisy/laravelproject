@@ -2,6 +2,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\WriterController;
 use App\Http\Controllers\publisherController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +15,7 @@ use App\Http\Controllers\publisherController;
 */
 
 Route::get('/test', function () {
-    return view('layout');
+    return view('home/index');
 });
 //BookController
 Route::get('/book/index', [BookController::class,'index']);
@@ -43,3 +44,6 @@ Route::get('/publisher/edit/{id}', [publisherController::class,'edit']);
 Route::post('/publisher/store', [publisherController::class,'store']);
 Route::post('/publisher/update/{id}', [publisherController::class,'update']);
 Route::get('/publisher/destroy/{id}', [publisherController::class,'destroy']);
+
+Route::get('/loginAdmin/check', [AdminController::class,'check']);
+Route::post('/loginAdmin/actionStart', [AdminController::class,'actionStart']);
