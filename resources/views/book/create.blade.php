@@ -46,6 +46,19 @@
        
     </div>
     <div class="form-group">
+        <label for="exampleInputPassword1"> Category</label>
+        <div class="d-block">
+            <select class="form-select form-select-lg mb-3" aria-label="Default select example" name="category"
+                id="category">
+                <option value="-1">Open this select menu</option>
+                @foreach ($categoryItems as $item )
+                <option value="{{$item->id}}">{{$item->Name}}</option>
+                @endforeach
+            </select>
+        </div>
+       
+    </div>
+    <div class="form-group">
         <label for="exampleInputPassword1"> Version Number</label>
         <input type="number" class="form-control" name="versionNumber" id="versionNumber" placeholder="Version Number">
     </div>

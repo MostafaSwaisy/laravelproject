@@ -42,10 +42,10 @@
                     <nav id="nav-menu-container">
                         <ul class="nav-menu">
                             <li class="menu-active"><a href="#home">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#fact">Fact</a></li>
-                            <li><a href="#price">Price</a></li>
-                            <li><a href="#course">Course</a></li>
+                            <li><a href="#books">Books</a></li>
+                            <li><a href="{{URL('/search/index')}}">Search</a></li>
+                            <li><a href="{{URL('/loginAdmin/check')}}" class="btn btn-outline-warning btn-lg">Login</a>
+                            </li>
                             <li class="menu-has-children"><a href="">Pages</a>
                                 <ul>
                                     <li><a href="{{asset('/book-master/generic.html')}}">Generic</a></li>
@@ -72,7 +72,7 @@
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp <br> or
                             incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
                         </p>
-                        <a href="#" class="primary-btn text-uppercase">Buy Now for $9.99</a>
+
                     </div>
                     <div class="col-lg-5 banner-right">
                         <img class="img-fluid" src="{{asset('/book-master/img/header-img.png')}}" alt="">
@@ -82,95 +82,16 @@
         </section>
         <!-- End banner Area -->
 
-        <!-- Start about Area -->
-        <section class="section-gap info-area" id="about">
-            <div class="container">
-                <div class="single-info row mt-40 align-items-center">
-                    <div class="col-lg-6 col-md-12 text-center no-padding info-left">
-                        <div class="info-thumb">
-                            <img src="{{asset('/book-master/img/about-img.jpg')}}" class="img-fluid info-img" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 no-padding info-rigth">
-                        <div class="info-content">
-                            <h2 class="pb-30">Dr. Travor James</h2>
-                            <p>
-                                inappropriate behavior is often laughed off as “boys will be boys,” women face higher
-                                conduct standards – especially in the workplace. That’s why it’s crucial that, as women.
-                            </p>
-                            <br>
-                            <p>
-                                inappropriate behavior is often laughed off as “boys will be boys,” women face higher
-                                conduct standards – especially in the workplace. That’s why it’s crucial that, as women.
-                                inappropriate behavior is often laughed off as “boys will be boys,” women face higher
-                                conduct standards – especially in the workplace. That’s why it’s crucial that, as women.
-                            </p>
-                            <br>
-                            <img src="{{asset('/book-master/img/signature.png')}}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End about Area -->
 
-        <!-- Start fact Area -->
-        <section class="fact-area relative section-gap" id="fact">
-            <div class="overlay overlay-bg"></div>
-            <div class="container">
-                <div class="row d-flex justify-content-center">
-                    <div class="menu-content pb-40 col-lg-8">
-                        <div class="title text-center">
-                            <h1 class="mb-10">Some Features that Made us Unique</h1>
-                            <p>Who are in extremely love with eco friendly system.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End fact Area -->
 
-        <!-- Start counter Area -->
-        <section class="counter-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-counter">
-                            <h1 class="counter">2536</h1>
-                            <p>Happy Clients</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-counter">
-                            <h1 class="counter">6784</h1>
-                            <p>Total Projects</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-counter">
-                            <h1 class="counter">1059</h1>
-                            <p>Cups Coffee</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-counter">
-                            <h1 class="counter">12239</h1>
-                            <p>Tickets Submitted</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end counter Area -->
-
-        <!-- Start price Area -->
-        <section class="price-area section-gap" id="price">
+        <!-- Start Book Area -->
+        <section class="price-area section-gap" id="books">
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="menu-content pb-60 col-lg-8">
                         <div class="title text-center">
-                            <h1 class="mb-10">Purchase whatever you want</h1>
-                            <p>Who are in extremely love with eco friendly system.</p>
+                            <h1 class="mb-10">Welcome To Laravel Library</h1>
+                            <p>Check our Books we have so many thing you maybe intrested</p>
                         </div>
                     </div>
                 </div>
@@ -178,271 +99,25 @@
                     <div class="col-lg-4">
                         <div class="single-price no-padding">
                             <div class="price-top">
-                                <h4>PDF</h4>
+                                <h4>BookName</h4>
                             </div>
                             <p>
-                                Who are in extremely love with <br>
-                                eco friendly system.
+                                Writer Name
                             </p>
                             <div class="price-bottom">
-                                <h1><span>$</span> 79.99</h1>
+                                <h3> publish by</h3>
                                 <a href="#" class="primary-btn header-btn">Purchase Now</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="single-price no-padding">
-                            <div class="price-top">
-                                <h4>E-Book</h4>
-                            </div>
-                            <p>
-                                Who are in extremely love with <br>
-                                eco friendly system.
-                            </p>
-                            <div class="price-bottom">
-                                <h1><span>$</span> 99.99</h1>
-                                <a href="#" class="primary-btn header-btn">Purchase Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="single-price no-padding">
-                            <div class="price-top">
-                                <h4>Print Copy</h4>
-                            </div>
-                            <p>
-                                Who are in extremely love with <br>
-                                eco friendly system.
-                            </p>
-                            <div class="price-bottom">
-                                <h1><span>$</span> 59.99</h1>
-                                <a href="#" class="primary-btn">Purchase Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End price Area -->
 
-        <!-- Start course Area -->
-        <section class="course-area section-gap" id="course">
-            <div class="container">
-                <div class="row d-flex justify-content-center">
-                    <div class="menu-content pb-60 col-lg-9">
-                        <div class="title text-center">
-                            <h1 class="mb-10">Top Courses That are open for Students</h1>
-                            <p>Who are in extremely love with eco friendly system.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="active-course-carusel">
-                        <div class="single-course item">
-                            <img class="img-fluid" src="img/c1.jpg" alt="">
-                            <p class="sale-btn">For Sale</p>
-                            <div class="details">
-                                <a href="#">
-                                    <h4>Breakthrough Thinking <span class="price float-right">$25</span></h4>
-                                </a>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna
-                                </p>
-                            </div>
-                        </div>
-                        <div class="single-course item">
-                            <img class="img-fluid" src="img/c2.jpg" alt="">
-                            <p class="sale-btn">For Sale</p>
-                            <div class="details">
-                                <a href="#">
-                                    <h4>Breakthrough Thinking <span class="price float-right">$25</span></h4>
-                                </a>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna
-                                </p>
-                            </div>
-                        </div>
-                        <div class="single-course item">
-                            <img class="img-fluid" src="img/c3.jpg" alt="">
-                            <p class="sale-btn">For Sale</p>
-                            <div class="details">
-                                <a href="#">
-                                    <h4>Breakthrough Thinking <span class="price float-right">$25</span></h4>
-                                </a>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna
-                                </p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
-        <!-- End course Area -->
+        <!-- End Book Area -->
 
-        <!-- Start call-to-action Area -->
-        <section class="call-to-action-area section-gap">
-            <div class="container">
-                <div class="row justify-content-center top">
-                    <div class="col-lg-12">
-                        <h1 class="text-white text-center">Download Our App for all Platforms</h1>
-                        <p class="text-white text-center mt-30">
-                            It won’t be a bigger problem to find one video game lover in your neighbor. Since the
-                            introduction of Virtual Game, it has been achieving great heights so far as its popularity
-                            and technological advancement are concerned.
-                        </p>
-                    </div>
-                </div>
-                <div class="row justify-content-center d-flex">
-                    <div class="download-button d-flex flex-row justify-content-center mt-30">
-                        <div class="buttons flex-row d-flex">
-                            <i class="fa fa-apple" aria-hidden="true"></i>
-                            <div class="desc">
-                                <a href="#">
-                                    <p>
-                                        <span>Available</span> <br>
-                                        on App Store
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="buttons flex-row d-flex">
-                            <i class="fa fa-android" aria-hidden="true"></i>
-                            <div class="desc">
-                                <a href="#">
-                                    <p>
-                                        <span>Available</span> <br>
-                                        on Play Store
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End call-to-action Area -->
+        
 
-        <!-- Start testomial Area -->
-        <section class="testomial-area section-gap">
-            <div class="container">
-                <div class="row d-flex justify-content-center">
-                    <div class="menu-content pb-60 col-lg-8">
-                        <div class="title text-center">
-                            <h1 class="mb-10">What our Reader’s Say about us</h1>
-                            <p>Who are in extremely love with eco friendly system.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="active-tstimonial-carusel">
-                        <div class="single-testimonial item">
-                            <img class="mx-auto" src="img/t1.png" alt="">
-                            <p class="desc">
-                                Accessories Here you can find the best computer accessory for your laptop, monitor,
-                                printer, scanner, speaker, projector, hardware and more. laptop accessory
-                            </p>
-                            <h4>Mark Alviro Wiens</h4>
-                            <p>
-                                CEO at Google
-                            </p>
-                        </div>
-                        <div class="single-testimonial item">
-                            <img class="mx-auto" src="img/t2.png" alt="">
-                            <p class="desc">
-                                Accessories Here you can find the best computer accessory for your laptop, monitor,
-                                printer, scanner, speaker, projector, hardware and more. laptop accessory
-                            </p>
-                            <h4>Mark Alviro Wiens</h4>
-                            <p>
-                                CEO at Google
-                            </p>
-                        </div>
-                        <div class="single-testimonial item">
-                            <img class="mx-auto" src="img/t3.png" alt="">
-                            <p class="desc">
-                                Accessories Here you can find the best computer accessory for your laptop, monitor,
-                                printer, scanner, speaker, projector, hardware and more. laptop accessory
-                            </p>
-                            <h4>Mark Alviro Wiens</h4>
-                            <p>
-                                CEO at Google
-                            </p>
-                        </div>
-                        <div class="single-testimonial item">
-                            <img class="mx-auto" src="img/t1.png" alt="">
-                            <p class="desc">
-                                Accessories Here you can find the best computer accessory for your laptop, monitor,
-                                printer, scanner, speaker, projector, hardware and more. laptop accessory
-                            </p>
-                            <h4>Mark Alviro Wiens</h4>
-                            <p>
-                                CEO at Google
-                            </p>
-                        </div>
-                        <div class="single-testimonial item">
-                            <img class="mx-auto" src="img/t2.png" alt="">
-                            <p class="desc">
-                                Accessories Here you can find the best computer accessory for your laptop, monitor,
-                                printer, scanner, speaker, projector, hardware and more. laptop accessory
-                            </p>
-                            <h4>Mark Alviro Wiens</h4>
-                            <p>
-                                CEO at Google
-                            </p>
-                        </div>
-                        <div class="single-testimonial item">
-                            <img class="mx-auto" src="img/t3.png" alt="">
-                            <p class="desc">
-                                Accessories Here you can find the best computer accessory for your laptop, monitor,
-                                printer, scanner, speaker, projector, hardware and more. laptop accessory
-                            </p>
-                            <h4>Mark Alviro Wiens</h4>
-                            <p>
-                                CEO at Google
-                            </p>
-                        </div>
-                        <div class="single-testimonial item">
-                            <img class="mx-auto" src="img/t1.png" alt="">
-                            <p class="desc">
-                                Accessories Here you can find the best computer accessory for your laptop, monitor,
-                                printer, scanner, speaker, projector, hardware and more. laptop accessory
-                            </p>
-                            <h4>Mark Alviro Wiens</h4>
-                            <p>
-                                CEO at Google
-                            </p>
-                        </div>
-                        <div class="single-testimonial item">
-                            <img class="mx-auto" src="img/t2.png" alt="">
-                            <p class="desc">
-                                Accessories Here you can find the best computer accessory for your laptop, monitor,
-                                printer, scanner, speaker, projector, hardware and more. laptop accessory
-                            </p>
-                            <h4>Mark Alviro Wiens</h4>
-                            <p>
-                                CEO at Google
-                            </p>
-                        </div>
-                        <div class="single-testimonial item">
-                            <img class="mx-auto" src="img/t3.png" alt="">
-                            <p class="desc">
-                                Accessories Here you can find the best computer accessory for your laptop, monitor,
-                                printer, scanner, speaker, projector, hardware and more. laptop accessory
-                            </p>
-                            <h4>Mark Alviro Wiens</h4>
-                            <p>
-                                CEO at Google
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End testomial Area -->
 
 
         <!-- start footer Area -->
@@ -456,15 +131,7 @@
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                                 incididunt ut labore dolore magna aliqua.
                             </p>
-                            <p class="footer-text">
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>
-                                    document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i class="fa fa-heart-o"
-                                    aria-hidden="true"></i> by <a href="https://colorlib.com"
-                                    target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </p>
+                            
                         </div>
                     </div>
                     <div class="col-lg-5  col-md-6 col-sm-6">
@@ -473,7 +140,7 @@
                             <p>Stay update with our latest</p>
                             <div class="" id="mc_embed_signup">
                                 <form target="_blank" novalidate="true"
-                                    action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                    action=""
                                     method="get" class="form-inline">
                                     <input class="form-control" name="EMAIL" placeholder="Enter Email"
                                         onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"

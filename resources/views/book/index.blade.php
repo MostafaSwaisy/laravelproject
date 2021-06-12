@@ -15,15 +15,20 @@
     {{\Session::get('msgDelete')}}
 </div>
 @endif
+<ul class="nav justify-content-end " style="margin-right: 15px ; margin-top:20px;">
+    <li class="nav-item ">
+        <a href="{{URL('book/create')}}" type="button" class="btn  btn-primary text-center ">Create New</a>
+    </li>
+</ul>
 <table class="table">
     <thead>
         <tr>
             <th scope="col">id</th>
             <th scope="col">name</th>
-            <th scope="col">versionNumber</th>
             <th scope="col">writer</th>
             <th scope="col">publisher</th>
-            <td><a href="{{URL('book/create')}}" type="button" class="btn btn-primary">Create New</a></td>
+            <th scope="col">Category</th>
+            <th scope="col">versionNumber</th>
         </tr>
     </thead>
     <tbody>
@@ -31,11 +36,12 @@
         <tr>
             <th scope="row">{{$item->id}}</th>
             <td>{{$item->bookName}}</td>
-            <td>{{$item->versionNumber}}</td>
             <td>{{$item->writerId}}</td>
             <td>{{$item->PublisherId}}</td>
+            <td>{{$item->categoryid}}</td>
+            <td>{{$item->versionNumber}}</td>
             <td><a href="{{URL('/book/edit/'.$item->id)}}" type="button" class="btn btn-info">edit</a></td>
-            <td><a href="{{URL('/book/delete/'.$item->id)}} type="button" class="btn btn-danger">delete</button></td>
+            <td><a href="{{URL('/book/delete/'.$item->id)}} type=" button" class="btn btn-danger">delete</button></td>
         </tr>
 
         @endforeach

@@ -15,12 +15,16 @@
     {{\Session::get('msgDelete')}}
 </div>
 @endif
+<ul class="nav justify-content-end " style="margin-right: 15px ; margin-top:20px;">
+    <li class="nav-item ">
+        <a href="{{URL('publisher/create')}}" type="button" class="btn  btn-primary text-center ">Create New</a>
+    </li>
+</ul>
 <table class="table">
     <thead>
         <tr>
             <th scope="col">id</th>
             <th scope="col">name</th>
-            <td><a href="{{URL('publisher/create')}}" type="button" class="btn btn-primary">Create New</a></td>
         </tr>
     </thead>
     <tbody>
@@ -29,7 +33,8 @@
             <th scope="row">{{$item->id}}</th>
             <td>{{$item->publisherName}}</td>
             <td><a href="{{URL('/publisher/edit/'.$item->id)}}" type="button" class="btn btn-info">edit</a></td>
-            <td><a href="{{URL('/publisher/destroy/'.$item->id)}} type="button" class="btn btn-danger">delete</button></td>
+            <td><a href="{{URL('/publisher/destroy/'.$item->id)}} type=" button" class="btn btn-danger">delete</button>
+            </td>
         </tr>
 
         @endforeach

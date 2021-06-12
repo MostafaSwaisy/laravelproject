@@ -3,6 +3,8 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\WriterController;
 use App\Http\Controllers\publisherController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,7 +37,6 @@ Route::post('/writer/store', [WriterController::class,'store']);
 Route::post('/writer/update/{id}', [WriterController::class,'update']);
 Route::get('/writer/destroy/{id}', [WriterController::class,'destroy']);
 
-
 //publisherController
 Route::get('/publisher/index', [publisherController::class,'index']);
 Route::get('/publisher/create', [publisherController::class,'create']);
@@ -45,5 +46,19 @@ Route::post('/publisher/store', [publisherController::class,'store']);
 Route::post('/publisher/update/{id}', [publisherController::class,'update']);
 Route::get('/publisher/destroy/{id}', [publisherController::class,'destroy']);
 
+//login
 Route::get('/loginAdmin/check', [AdminController::class,'check']);
 Route::post('/loginAdmin/actionStart', [AdminController::class,'actionStart']);
+
+//search
+Route::get('/search/index', [SearchController::class,'index']);
+Route::get('/search/index/{$search}', [SearchController::class,'index']);
+
+//CategoryController
+Route::get('/category/index', [CategoryController::class,'index']);
+Route::get('/category/create', [CategoryController::class,'create']);
+Route::get('/category/edit/{id}', [CategoryController::class,'edit']);
+//actions
+Route::post('/category/store', [CategoryController::class,'store']);
+Route::post('/category/update/{id}', [CategoryController::class,'update']);
+Route::get('/category/destroy/{id}', [CategoryController::class,'destroy']);

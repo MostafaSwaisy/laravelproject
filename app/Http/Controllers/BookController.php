@@ -17,7 +17,12 @@ class BookController extends Controller
     {     $writerItems=\DB::table('writer')->get();
         //dd($writerItems);
          $publisherItems=\DB::table('publisher')->get();
-        return view('book.create')->with('writerItems',$writerItems)->with('publisherItems',$publisherItems);
+         $categoryItems=\DB::table('category')->get();
+
+        return view('book.create')
+        ->with('writerItems',$writerItems)
+        ->with('categoryItems',$categoryItems)
+        ->with('publisherItems',$publisherItems);
     }
 
     function edit($id)
@@ -25,11 +30,12 @@ class BookController extends Controller
         $book = \DB::table('book')->where('id', '=', $id)->first();
         $writerItems=\DB::table('writer')->get();
         $publisherItems=\DB::table('publisher')->get();
-        
+        $categoryItems=\DB::table('category')->get();
         
         return view('book.update')
         ->with('writerItems',$writerItems)
         ->with('publisherItems',$publisherItems)
+        ->with('category',$categoryItems)
         ->with('book',$book);
     }
 
@@ -45,7 +51,8 @@ class BookController extends Controller
             'bookName'=> $request['bookName'],
             'versionNumber'=> $request['versionNumber'],
             'writerId'=>$request['writer'],
-            'PublisherId'=>$request['publisher']
+            'PublisherId'=>$request['publisher'],
+            'categoryId'=>$request['category']
         ]);
         \Session::flash('msg', 'sucsses opration');
       

@@ -17,7 +17,7 @@
 @endif
 <ul class="nav justify-content-end " style="margin-right: 15px ; margin-top:20px;">
     <li class="nav-item ">
-        <a href="{{URL('writer/create')}}" type="button" class="btn  btn-primary text-center ">Create New</a>
+        <a href="{{URL('category/create')}}" type="button" class="btn btn-primary text-center">Create New</a>
     </li>
 </ul>
 <table class="table">
@@ -25,7 +25,7 @@
         <tr>
             <th scope="col">id</th>
             <th scope="col">name</th>
-            <td><a href="{{URL('writer/create')}}" type="button" class="btn btn-primary">Create New</a></td>
+
         </tr>
     </thead>
     <tbody>
@@ -33,8 +33,8 @@
         <tr>
             <th scope="row">{{$item->id}}</th>
             <td>{{$item->Name}}</td>
-            <td><a href="{{URL('/writer/edit/'.$item->id)}}" type="button" class="btn btn-info">edit</a></td>
-            <td><a href="{{URL('/writer/destroy/'.$item->id)}} type=" button" class="btn btn-danger">delete</button>
+            <td><a href="{{URL('/category/edit/'.$item->id)}}" type="button" class="btn btn-info">edit</a></td>
+            <td><a href="{{URL('/category/destroy/'.$item->id)}} type=" button" class="btn btn-danger">delete</button>
             </td>
         </tr>
 
