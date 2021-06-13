@@ -3,8 +3,8 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\WriterController;
 use App\Http\Controllers\publisherController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\SearchController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,9 +46,6 @@ Route::post('/publisher/store', [publisherController::class,'store'])->middlewar
 Route::post('/publisher/update/{id}', [publisherController::class,'update'])->middleware('auth');
 Route::get('/publisher/destroy/{id}', [publisherController::class,'destroy'])->middleware('auth');
 
-//search
-Route::get('/search/index', [SearchController::class,'index']);
-Route::get('/search/index/{$search}', [SearchController::class,'index']);
 
 //CategoryController
 Route::get('/category/index', [CategoryController::class,'index'])->middleware('auth');
@@ -60,4 +57,7 @@ Route::post('/category/update/{id}', [CategoryController::class,'update'])->midd
 Route::get('/category/destroy/{id}', [CategoryController::class,'destroy'])->middleware('auth');
 //make auth
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', [HomeController::class,'index']);
+Route::get('/home/search', [HomeController::class,'search']);
+//Route::get('/home/search/{search}', [HomeController::class,'searchResult']);
+//Route::post('/home/searchResult/{searchword}', [HomeController::class,'searchResult']);

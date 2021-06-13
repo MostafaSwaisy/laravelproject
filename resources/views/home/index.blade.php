@@ -43,7 +43,7 @@
                         <ul class="nav-menu">
                             <li class="menu-active"><a href="#home">Home</a></li>
                             <li><a href="#books">Books</a></li>
-                            <li><a href="{{URL('/search/index')}}">Search</a></li>
+                            <li><a href="{{URL('/home/search')}}">Search</a></li>
                             <li><a href="{{URL('/book/index')}}" class="btn btn-outline-warning btn-lg">Login</a>
                             </li>
                             <li class="menu-has-children"><a href="">Pages</a>
@@ -95,28 +95,32 @@
                         </div>
                     </div>
                 </div>
+                @foreach ($result as $item)
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="single-price no-padding">
                             <div class="price-top">
-                                <h4>BookName</h4>
+                                <h4>{{$item->bookName}}</h4>
                             </div>
                             <p>
-                                Writer Name
+                                <span>{{$item->writerName}}</span>
+                                <br>
+                                <span>{{$item->categoryName}}</span>
                             </p>
                             <div class="price-bottom">
                                 <h3> publish by</h3>
-                                <a href="#" class="primary-btn header-btn">Purchase Now</a>
+                                <a href="#" class="primary-btn header-btn">{{$item->publisherName}}</a>
                             </div>
                         </div>
                     </div>
 
                 </div>
+                @endforeach
             </div>
         </section>
         <!-- End Book Area -->
 
-        
+
 
 
 
@@ -131,7 +135,7 @@
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                                 incididunt ut labore dolore magna aliqua.
                             </p>
-                            
+
                         </div>
                     </div>
                     <div class="col-lg-5  col-md-6 col-sm-6">
@@ -139,9 +143,7 @@
                             <h6>Newsletter</h6>
                             <p>Stay update with our latest</p>
                             <div class="" id="mc_embed_signup">
-                                <form target="_blank" novalidate="true"
-                                    action=""
-                                    method="get" class="form-inline">
+                                <form target="_blank" novalidate="true" action="" method="get" class="form-inline">
                                     <input class="form-control" name="EMAIL" placeholder="Enter Email"
                                         onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
                                         required="" type="email">

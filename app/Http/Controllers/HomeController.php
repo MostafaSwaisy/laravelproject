@@ -8,22 +8,21 @@ use App\Book;
 class HomeController extends Controller
 {
    
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+    
+  
+   
     public function index()
-    {   $books=[];
-        $bookItem= new Book();
-       // $items=\DB::table('book')->get();
+    {   
+        $booksearch = [];
+        $count = 0;
         $items=json_decode(\DB::table('book')->get(), true);
+        
         $writerItems=json_decode(\DB::table('writer')->get(), true);
         $publisherItems=json_decode(\DB::table('publisher')->get(), true);
         $categoryItems=json_decode(\DB::table('category')->get(), true);
-        
+        //************************************* */
         for ($i=0; $i <sizeof($items) ; $i++) { 
+            $bookItem= new Book();
             $id= $items[$i]['id'];
             $bookItem->id = $id;
            
@@ -51,10 +50,71 @@ class HomeController extends Controller
                    $bookItem->categoryName=$writer['Name'];
                 }
             }
-            $books[$i]=$bookItem;
+            $booksearch[$count]=$bookItem;
+            $count += 1; 
+           
         }
-        $encodedSku = json_encode($books);
-        return view('home.index');
+        
+       $result = json_encode($booksearch);
+        return view('home.index')->with('result',$booksearch);
     }
+
+    function search(Request $request){
+        $booksss = [];
+        $booksearch = [];
+        
+        $r = $request['search'];
+        
+        $items=json_decode(\DB::table('book')->get(), true);
+        $writerItems=json_decode(\DB::table('writer')->get(), true);
+        $publisherItems=json_decode(\DB::table('publisher')->get(), true);
+        $categoryItems=json_decode(\DB::table('category')->get(), true);
+        //************************************* */
+        for ($i=0; $i <sizeof($items) ; $i++) { 
+            $bookItem= new Book();
+            $id= $items[$i]['id'];
+            $bookItem->id = $id;
+           
+            $bookItem->bookName = $items[$i]['bookName'];
+            $bookItem->writerId = $items[$i]['writerId'];
+            $bookItem->PublisherId = $items[$i]['PublisherId'];
+            
+            $bookItem->categoryid = $items[$i]['categoryid'];
+           // dd($writerItems);
+            foreach ($writerItems as $writer) {
+                 if ($writer['id'] == $bookItem->writerId) {
+                    $bookItem->writerName=$writer['Name'];
+                 }
+             }
+
+             
+            foreach ($publisherItems as $publisher) {
+                if ($publisher['id'] == $bookItem->PublisherId) {
+                   $bookItem->publisherName=$publisher['publisherName'];
+                }
+             }
+
+             
+            foreach ($categoryItems as  $category) {
+                if ($category['id'] ==  $bookItem->PublisherId) {
+                   $bookItem->categoryName=$category['Name'];
+                }
+            }
+            $booksearch[$i]=$bookItem;
+        }
+       $count = 0;
+        $result = json_encode($booksearch);
+        for($i = 0; $i < sizeof($booksearch); $i++){
+            $book=$booksearch[$i];
+            if($book['bookName'] == $r || $book['publisherName'] == $r){
+                $booksss[$i] = $book['bookName'];
+                $count +=1;
+            }   
+        }
+        //dd($booksearch);
+        return view('home.search')->with('booksss',$booksss);
+    }
+
+
     
 }
