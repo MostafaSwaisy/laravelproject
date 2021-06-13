@@ -20,45 +20,44 @@ Route::get('/test', function () {
     return view('home/index');
 });
 //BookController
-Route::get('/book/index', [BookController::class,'index']);
-Route::get('/book/create', [BookController::class,'create']);
-Route::get('/book/edit/{id}', [BookController::class,'edit']);
+Route::get('/book/index', [BookController::class,'index'])->middleware('auth');
+Route::get('/book/create', [BookController::class,'create'])->middleware('auth');
+Route::get('/book/edit/{id}', [BookController::class,'edit'])->middleware('auth');
 //actions
-Route::post('/book/store', [BookController::class,'store']);
-Route::post('/book/update/{id}', [BookController::class,'update']);
-Route::get('/book/delete/{id}', [BookController::class,'delete']);
+Route::post('/book/store', [BookController::class,'store'])->middleware('auth');
+Route::post('/book/update/{id}', [BookController::class,'update'])->middleware('auth');
+Route::get('/book/delete/{id}', [BookController::class,'delete'])->middleware('auth');
 
 //WriterController
-Route::get('/writer/index', [WriterController::class,'index']);
-Route::get('/writer/create', [WriterController::class,'create']);
-Route::get('/writer/edit/{id}', [WriterController::class,'edit']);
+Route::get('/writer/index', [WriterController::class,'index'])->middleware('auth');
+Route::get('/writer/create', [WriterController::class,'create'])->middleware('auth');
+Route::get('/writer/edit/{id}', [WriterController::class,'edit'])->middleware('auth');
 //actions
-Route::post('/writer/store', [WriterController::class,'store']);
-Route::post('/writer/update/{id}', [WriterController::class,'update']);
-Route::get('/writer/destroy/{id}', [WriterController::class,'destroy']);
+Route::post('/writer/store', [WriterController::class,'store'])->middleware('auth');
+Route::post('/writer/update/{id}', [WriterController::class,'update'])->middleware('auth');
+Route::get('/writer/destroy/{id}', [WriterController::class,'destroy'])->middleware('auth');
 
 //publisherController
-Route::get('/publisher/index', [publisherController::class,'index']);
-Route::get('/publisher/create', [publisherController::class,'create']);
-Route::get('/publisher/edit/{id}', [publisherController::class,'edit']);
+Route::get('/publisher/index', [publisherController::class,'index'])->middleware('auth');
+Route::get('/publisher/create', [publisherController::class,'create'])->middleware('auth');
+Route::get('/publisher/edit/{id}', [publisherController::class,'edit'])->middleware('auth');
 //actions
-Route::post('/publisher/store', [publisherController::class,'store']);
-Route::post('/publisher/update/{id}', [publisherController::class,'update']);
-Route::get('/publisher/destroy/{id}', [publisherController::class,'destroy']);
-
-//login
-Route::get('/loginAdmin/check', [AdminController::class,'check']);
-Route::post('/loginAdmin/actionStart', [AdminController::class,'actionStart']);
+Route::post('/publisher/store', [publisherController::class,'store'])->middleware('auth');
+Route::post('/publisher/update/{id}', [publisherController::class,'update'])->middleware('auth');
+Route::get('/publisher/destroy/{id}', [publisherController::class,'destroy'])->middleware('auth');
 
 //search
 Route::get('/search/index', [SearchController::class,'index']);
 Route::get('/search/index/{$search}', [SearchController::class,'index']);
 
 //CategoryController
-Route::get('/category/index', [CategoryController::class,'index']);
-Route::get('/category/create', [CategoryController::class,'create']);
-Route::get('/category/edit/{id}', [CategoryController::class,'edit']);
+Route::get('/category/index', [CategoryController::class,'index'])->middleware('auth');
+Route::get('/category/create', [CategoryController::class,'create'])->middleware('auth');
+Route::get('/category/edit/{id}', [CategoryController::class,'edit'])->middleware('auth');
 //actions
-Route::post('/category/store', [CategoryController::class,'store']);
-Route::post('/category/update/{id}', [CategoryController::class,'update']);
-Route::get('/category/destroy/{id}', [CategoryController::class,'destroy']);
+Route::post('/category/store', [CategoryController::class,'store'])->middleware('auth');
+Route::post('/category/update/{id}', [CategoryController::class,'update'])->middleware('auth');
+Route::get('/category/destroy/{id}', [CategoryController::class,'destroy'])->middleware('auth');
+//make auth
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');

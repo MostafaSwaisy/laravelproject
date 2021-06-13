@@ -44,7 +44,7 @@
                             <li class="menu-active"><a href="#home">Home</a></li>
                             <li><a href="#books">Books</a></li>
                             <li><a href="{{URL('/search/index')}}">Search</a></li>
-                            <li><a href="{{URL('/loginAdmin/check')}}" class="btn btn-outline-warning btn-lg">Login</a>
+                            <li><a href="{{URL('/book/index')}}" class="btn btn-outline-warning btn-lg">Login</a>
                             </li>
                             <li class="menu-has-children"><a href="">Pages</a>
                                 <ul>

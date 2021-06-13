@@ -28,7 +28,17 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
             </form>
-            <a href="{{URL('/loginAdmin/check')}}" class="btn btn-outline-info my-2 my-sm-0"
-                style="margin-left: 15px" type="submit">Login</a>
+            
+                <div style="margin-left: 15px" class="btn btn-outline-info my-2 my-sm-0" aria-labelledby="navbarDropdown">
+                    <a class="" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ URL('/logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
         </div>
     </nav>
