@@ -16,9 +16,7 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/test', function () {
-    return view('home/index');
-});
+
 //BookController
 Route::get('/book/index', [BookController::class,'index'])->middleware('auth');
 Route::get('/book/create', [BookController::class,'create'])->middleware('auth');
