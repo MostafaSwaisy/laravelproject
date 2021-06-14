@@ -9,7 +9,7 @@ class CategoryController extends Controller
   
     public function index()
     {
-        $items=\DB::table('category')->get();
+        $items=\DB::table('category')->where('isDelete' ,'=', 1)->get();
         return view('category.index')->withItems($items);
     }
 
@@ -27,7 +27,8 @@ class CategoryController extends Controller
         ]);
         
         \DB::table("category")->insert([
-            'Name'=> $request['categoryName']
+            'Name'=> $request['categoryName'],
+            'isDelete' => 1
         ]);
         \Session::flash('msg', 'sucsses opration');
       
@@ -57,7 +58,9 @@ class CategoryController extends Controller
  
     public function destroy($id)
     {
-        \DB::table('category')->where('id',$id)->delete();
+        \DB::table('category')->where('id',$id)->update([
+            'isDelete'=> 0
+        ]);
         \Session::flash('msgDelete', 'sucsses opration');
         return redirect()->action([CategoryController::class, 'index']);
     }

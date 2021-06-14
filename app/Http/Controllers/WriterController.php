@@ -9,7 +9,7 @@ class WriterController extends Controller
 
     public function index()
     {
-        $items=\DB::table('writer')->get();
+        $items=\DB::table('writer')->where('isDelete' ,'=', 1)->get();
         return view('writer.index')->withItems($items);
     }
 
@@ -27,7 +27,8 @@ class WriterController extends Controller
         ]);
         
         \DB::table("writer")->insert([
-            'Name'=> $request['writerName']
+            'Name'=> $request['writerName'],
+            'isDelete' => 1
         ]);
         \Session::flash('msg', 'sucsses opration');
       
@@ -56,7 +57,9 @@ class WriterController extends Controller
     
     public function destroy($id)
     {
-        \DB::table('writer')->where('id',$id)->delete();
+        \DB::table('writer')->where('id',$id)->update([
+            'isDelete'=> 0
+        ]);
         \Session::flash('msgDelete', 'sucsses opration');
         return redirect()->action([WriterController::class, 'index']);
     }

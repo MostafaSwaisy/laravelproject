@@ -1,6 +1,11 @@
 @extends('layout')
 @section("Forms")
 
+@if (\Session::get('msgDelete'))
+<div class="alert alert-danger">
+    {{\Session::get('msgDelete')}}
+</div>
+@endif
 @if ($errors->any())
 <div class="alert alert-danger">
     <ul>
@@ -43,7 +48,7 @@
                 @endforeach
             </select>
         </div>
-       
+
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1"> Category</label>
@@ -56,12 +61,13 @@
                 @endforeach
             </select>
         </div>
-       
+
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1"> Version Number</label>
         <input type="number" class="form-control" name="versionNumber" id="versionNumber" placeholder="Version Number">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <a class=" btn btn-danger" style="margin-inline-start: 15px;" href="{{URL('category/index')}}">Cancel</a>
 </form>
 @endsection

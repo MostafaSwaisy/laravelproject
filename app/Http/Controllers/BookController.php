@@ -10,14 +10,15 @@ class BookController extends Controller
     //
      function index()
     {
-        $items=\DB::table('book')->get();
-        return view('book.index')->withItems($items);
+        $books = app('App\Http\Controllers\HomeController')->read();
+        $items=\DB::table('book')->where('isDelete' ,'=', 1)->get();
+        return view('book.index')->withItems($books);
     }
     function create()
-    {     $writerItems=\DB::table('writer')->get();
+    {     $writerItems=\DB::table('writer')->where('isDelete' ,'=', 1)->get();
         //dd($writerItems);
-         $publisherItems=\DB::table('publisher')->get();
-         $categoryItems=\DB::table('category')->get();
+         $publisherItems=\DB::table('publisher')->where('isDelete' ,'=', 1)->get();
+         $categoryItems=\DB::table('category')->where('isDelete' ,'=', 1)->get();
 
         return view('book.create')
         ->with('writerItems',$writerItems)
@@ -28,9 +29,9 @@ class BookController extends Controller
     function edit($id)
     {   //for just one record in dB and for primary key nothing else
         $book = \DB::table('book')->where('id', '=', $id)->first();
-        $writerItems=\DB::table('writer')->get();
-        $publisherItems=\DB::table('publisher')->get();
-        $categoryItems=\DB::table('category')->get();
+        $writerItems=\DB::table('writer')->where('isDelete' ,'=', 1)->get();
+        $publisherItems=\DB::table('publisher')->where('isDelete' ,'=', 1)->get();
+        $categoryItems=\DB::table('category')->where('isDelete' ,'=', 1)->get();
         
         return view('book.update')
         ->with('writerItems',$writerItems)
@@ -46,17 +47,30 @@ class BookController extends Controller
             'bookName'=>'required|max:50',
             'versionNumber'=>'required|min:1'
         ]);
+
+        $count = \DB::table('book')
+        ->where('bookName', $request['bookName'])
+        ->where('versionNumber',  $request['versionNumber'])
+        ->count();
+        if($count > 0){
+            \Session::flash('msgDelete', "can't add your book Already exist ");
+            return redirect()->action([BookController::class, 'create']);
         
-        \DB::table("book")->insert([
-            'bookName'=> $request['bookName'],
-            'versionNumber'=> $request['versionNumber'],
-            'writerId'=>$request['writer'],
-            'PublisherId'=>$request['publisher'],
-            'categoryId'=>$request['category']
-        ]);
-        \Session::flash('msg', 'sucsses opration');
+        }else {
+            \DB::table("book")->insert([
+                'bookName'=> $request['bookName'],
+                'versionNumber'=> $request['versionNumber'],
+                'writerId'=>$request['writer'],
+                'PublisherId'=>$request['publisher'],
+                'categoryId'=>$request['category'],
+                'isDelete' => 1
+            ]);
+            \Session::flash('msg', 'sucsses opration');
       
         return redirect()->action([BookController::class, 'index']);
+        }
+        
+        
     }
 
     public function update(Request $request, $id)
@@ -71,7 +85,11 @@ class BookController extends Controller
         return redirect()->action([BookController::class, 'index']);
     }
     public function delete ($id){
-     \DB::table('book')->where('id',$id)->delete();
+        
+    
+     \DB::table('book')->where('id',$id)->update([
+        'isDelete'=> 0
+    ]);
      \Session::flash('msgDelete', 'sucsses opration');
      return redirect()->action([BookController::class, 'index']);
     }

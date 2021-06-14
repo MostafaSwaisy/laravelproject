@@ -46,12 +46,6 @@
                             <li><a href="{{URL('/home/search')}}">Search</a></li>
                             <li><a href="{{URL('/book/index')}}" class="btn btn-outline-warning btn-lg">Login</a>
                             </li>
-                            <li class="menu-has-children"><a href="">Pages</a>
-                                <ul>
-                                    <li><a href="{{asset('/book-master/generic.html')}}">Generic</a></li>
-                                    <li><a href="{{asset('/book-master/elements.html')}}">Elements</a></li>
-                                </ul>
-                            </li>
                         </ul>
                     </nav><!-- #nav-menu-container -->
                 </div>
@@ -95,27 +89,29 @@
                         </div>
                     </div>
                 </div>
-                @foreach ($result as $item)
+
                 <div class="row">
-                    <div class="col-lg-4">
+
+                    @foreach ($result as $item)
+                    <div class="col-lg-4" style="margin-bottom: 12px">
                         <div class="single-price no-padding">
                             <div class="price-top">
                                 <h4>{{$item->bookName}}</h4>
                             </div>
                             <p>
-                                <span>{{$item->writerName}}</span>
+                                <h2>{{$item->writerName}}</h2>
                                 <br>
-                                <span>{{$item->categoryName}}</span>
+                                <h4>{{$item->categoryName}}</h4>
                             </p>
                             <div class="price-bottom">
                                 <h3> publish by</h3>
                                 <a href="#" class="primary-btn header-btn">{{$item->publisherName}}</a>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
         </section>
         <!-- End Book Area -->

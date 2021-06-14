@@ -9,7 +9,7 @@ class publisherController extends Controller
  
     public function index()
     {
-        $items=\DB::table('publisher')->get();
+        $items=\DB::table('publisher')->where('isDelete' ,'=', 1)->get();
         return view('publisher.index')->withItems($items);
     }
 
@@ -27,7 +27,8 @@ class publisherController extends Controller
         ]);
         
         \DB::table("publisher")->insert([
-            'publisherName'=> $request['publisherName']
+            'publisherName'=> $request['publisherName'],
+            'isDelete' => 1
         ]);
         \Session::flash('msg', 'sucsses opration');
       
@@ -56,7 +57,9 @@ class publisherController extends Controller
    
     public function destroy($id)
     {
-        \DB::table('publisher')->where('id',$id)->delete();
+        \DB::table('publisher')->where('id',$id)->update([
+            'isDelete'=> 0
+        ]);
         \Session::flash('msgDelete', 'sucsses opration');
         return redirect()->action([publisherController::class, 'index']);
     }

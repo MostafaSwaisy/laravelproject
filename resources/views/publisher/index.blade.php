@@ -33,7 +33,7 @@
             <th scope="row">{{$item->id}}</th>
             <td>{{$item->publisherName}}</td>
             <td><a href="{{URL('/publisher/edit/'.$item->id)}}" type="button" class="btn btn-info">edit</a></td>
-            <td><a href="{{URL('/publisher/destroy/'.$item->id)}} type=" button" class="btn btn-danger">delete</button>
+            <td><a href="{{URL('/publisher/destroy/'.$item->id)}}" type="button" class="btn btn-danger">delete</a>
             </td>
         </tr>
 

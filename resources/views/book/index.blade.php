@@ -36,12 +36,12 @@
         <tr>
             <th scope="row">{{$item->id}}</th>
             <td>{{$item->bookName}}</td>
-            <td>{{$item->writerId}}</td>
-            <td>{{$item->PublisherId}}</td>
-            <td>{{$item->categoryid}}</td>
+            <td>{{$item->writerName}}</td>
+            <td>{{$item->publisherName}}</td>
+            <td>{{$item->categoryName}}</td>
             <td>{{$item->versionNumber}}</td>
             <td><a href="{{URL('/book/edit/'.$item->id)}}" type="button" class="btn btn-info">edit</a></td>
-            <td><a href="{{URL('/book/delete/'.$item->id)}} type=" button" class="btn btn-danger">delete</button></td>
+            <td><a href="{{URL('/book/delete/'.$item->id)}}" type="button" class="btn btn-danger">delete</a></td>
         </tr>
 
         @endforeach

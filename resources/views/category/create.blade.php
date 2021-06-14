@@ -8,5 +8,6 @@
             placeholder="categoryName">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <a class=" btn btn-danger" style="margin-inline-start: 15px;" href="{{URL('category/index')}}">Cancel</a>
 </form>
 @endsection

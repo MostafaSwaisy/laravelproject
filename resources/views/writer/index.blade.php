@@ -25,7 +25,7 @@
         <tr>
             <th scope="col">id</th>
             <th scope="col">name</th>
-            <td><a href="{{URL('writer/create')}}" type="button" class="btn btn-primary">Create New</a></td>
+           
         </tr>
     </thead>
     <tbody>
@@ -34,7 +34,7 @@
             <th scope="row">{{$item->id}}</th>
             <td>{{$item->Name}}</td>
             <td><a href="{{URL('/writer/edit/'.$item->id)}}" type="button" class="btn btn-info">edit</a></td>
-            <td><a href="{{URL('/writer/destroy/'.$item->id)}} type=" button" class="btn btn-danger">delete</button>
+            <td><a href="{{URL('/writer/destroy/'.$item->id)}}" type="button" class="btn btn-danger">delete</a>
             </td>
         </tr>
 
